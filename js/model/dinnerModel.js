@@ -5,7 +5,7 @@ var DinnerModel = function() {
 	// and selected dinner options for dinner menu
     
     var numberOfGuests = 1;
-    var menu = [1,2,3];
+    var menu = [];
     var dishType = '';
     var filter = '';
     var dishID;
@@ -128,14 +128,14 @@ var DinnerModel = function() {
 		var thisDish;
 		thisDish = this.getDish(id);
 		var ingredients = thisDish.ingredients;
-		/*
+		
 		var guestNum = this.getNumberOfGuests();
 		//console.log(guestNum);
 		for (var j = 0; j < ingredients.length; j++) {
 				ingredients[j].quantity = guestNum * ingredients[j].quantity;
 				ingredients[j].price = guestNum * ingredients[j].price;
 			};
-			*/
+			
 		return ingredients;
 	}
 
@@ -187,25 +187,40 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		//TODO Lab 2 
+		// Get the dish that is supposed to add
+		var dish = this.getDish(id);
+        var type = dish.type;
+        
+        // if the menu is null, then directly add the dish, or varify whether it has the same type of didsh in the menu
+        if (menu.length == 0) {
+        	menu.push(id);
+        	console.log("length is 0");
+        }else{
+        // set the index of the same type of dish in the menu; find the same type of dish in the menu and get the index
+        	var index = -1;
+        	for (var i = 0; i < menu.length; i++) {
+        	   var dishInMenu = this.getDish(menu[i]);
+        	   if (type == dishInMenu.type) {
+        	   	  index = i;
+        	   }; 
+        	 };
+        	  if (index != -1) {
+        	   	  menu[index] = id;
+        	   }else{
+        	   	  menu.push(id);
+        	   };
+          };
 
-        menu.push(id); //push上去的id是字符串形式
-        console.log(menu); // Can successfully add the menu
         this.notify("addMenu");
-        // return menu;
-
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		console.log(id); 
-
 		for (var i = 0; i< menu.length; i++) {
 			if (menu[i] == id) {
-				console.log(menu[i]);
 				menu.splice(i,1);
 			};
 		};
-		console.log(menu); 
 		this.notify("removeDish");
 
 	}
