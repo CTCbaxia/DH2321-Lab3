@@ -1,19 +1,23 @@
 var OverviewDinnerView = function (container, model){
 	model.attach(this);
-	this.update = function(args){
+
+
+	// Get The number of people
+	this.numberOfPeople = container.find(".numberOfPeople");
+	this.numberOfPeople.html(model.getNumberOfGuests());	
+
+    // Get the full price
+   	this.update = function(args){
 		if (args == "confirmDinner") {
-			this.totalPrice = container.find("#totalPrice");
-    		this.totalPrice.html(model.getTotalMenuPrice());
-			//console.log("I am in confirmDinner");
             // GET The number of people
 			this.numberOfPeople = container.find(".numberOfPeople");
 			this.numberOfPeople.html(model.getNumberOfGuests());
 			this.listSelectDishes = container.find("#listSelectDishes");
+			this.totalPrice = container.find("#totalPrice");
+    		this.totalPrice.html(model.getTotalMenuPrice());
 			var selectDishes = "";
 			var fullMenu = model.getFullMenu();
 
-			this.numberOfPeople = container.find(".numberOfPeople");
-			this.numberOfPeople.html(model.getNumberOfGuests());
 
 			for (var i = 0; i < fullMenu.length; i++) {
 		    var dishID = fullMenu[i].id;
@@ -32,16 +36,6 @@ var OverviewDinnerView = function (container, model){
         	this.listSelectDishes.html(selectDishes);
 		};
 	}
-
-	// // GET The number of people
-	// this.numberOfPeople = container.find(".numberOfPeople");
-	// this.numberOfPeople.html(model.getNumberOfGuests());
-	// Get the list of the selected dishes in the menu
-	this.numberOfPeople = container.find(".numberOfPeople");
-	this.numberOfPeople.html(model.getNumberOfGuests());	
-
-    // Get the full price
-   
 
 }
 

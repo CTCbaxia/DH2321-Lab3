@@ -1,20 +1,16 @@
 var SelectDishView = function (container, model){
-    // GET The number of people
-	/*
-	this.numberOfPeople = container.find(".numberOfPeople");
-	this.numberOfPeople.html(model.getNumberOfGuests());
-	*/
 
-	// Get the total price of selected dish;
 	model.attach(this);
 	this.update = function(args){
-		if (args == 'dishDetail') {
-
+		if (args == "dishDetail"|| args == "people") {
 			this.numberOfPeople = container.find(".numberOfPeople");
-			this.numberOfPeople.html(model.getNumberOfGuests());
+			var guestNum = model.getNumberOfGuests();
+			this.numberOfPeople.html(guestNum);
 			
 			var dishID = model.getDishID();	
 			var totalPrice = model.getTotalDishPrice(dishID);
+			// model.addDishToMenu(dishID);
+		
 		
    			//Get the dish Name
     		this.dishname = container.find("#dishName");
@@ -39,11 +35,11 @@ var SelectDishView = function (container, model){
 			var getIngre = "";
 			for (var i = 0; i < allIngre.length; i++) {
 				getIngre +=  "<tr>" +
-						"<td>" + allIngre[i].quantity + "</td>" +
+						"<td>" + (allIngre[i].quantity * guestNum) + "</td>" +
 						"<td>" + allIngre[i].unit + "</td>" +
 					    "<td style= \"width: 55%;\"> " + allIngre[i].name + "</td>" +
 						"<td> SEK </td> " + " " +
-						"<td> " + allIngre[i].price + " </td>" +
+						"<td> " + (allIngre[i].price * guestNum) + " </td>" +
 					 "</tr></br>";
 			};
 			this.dishIngre.html(getIngre);
@@ -59,35 +55,16 @@ var SelectDishView = function (container, model){
 						"<td> " + totalPrice + " </td>" +
 					 "</tr></br>";
 			this.dishPrice.html(printPrice);
+
+
+	        $(".confirm").on("click",function(){  
+		    var id = $(this).attr('id');
+		    model.addDishToMenu(id);
+		    });
+
+
 		};
 	}
 
-    /*
-    var dishID = model.getDishID();
-	this.totalDishPrice = container.find("#totalDishPrice");
-	var totalPrice = model.getTotalDishPrice(dishID);
-	this.totalDishPrice.html(totalPrice);
-
-    //Get the dish Name
-    this.dishname = container.find("#dishName");
-
-	//Get the dish Introduction
-
-	//Get the dish Ingredients
-	this.dishIngre = container.find("#dishIngre");
-	var allIngre = model.getDishIngredients(dishID);
-	var getIngre = "";
-	for (var i = 0; i < allIngre.length; i++) {
-		getIngre +=  "<tr>" +
-						"<td>" + allIngre[i].quantity + "</td>" +
-						"<td>" + allIngre[i].unit + "</td>" +
-					    "<td style= \"width: 55%;\"> " + allIngre[i].name + "</td>" +
-						"<td> SEK </td> " + " " +
-						"<td> " + allIngre[i].price + " </td>" +
-					 "</tr></br>";
-	};
-
-	this.dishIngre.html(getIngre + " SEK " + totalPrice);
-	*/
 }
 
