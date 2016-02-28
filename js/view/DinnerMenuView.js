@@ -56,16 +56,13 @@ var DinnerMenuView = function(container,model){
 				"</table>";
 
 	
-		 //    $(".removeDish").on("click",function(){
-		 //    var id = $(this).attr('id');
-		 //    model.removeDishFromMenu(id);
-		 //    model.notify("removeDish");
-			// });
+
 			
 		this.dinnerMenu.html(menuList);
 		$(".removeDish").click(removeDishFunction);
 
 		};
+
 
 	}
 
