@@ -2,9 +2,15 @@ var DinnerMenuViewController = function(view, model){
   //remove dish function
   $(".removeDish").on("click",function(){
     var id = $(this).attr('id');
-    console.log(id);
+    console.log("I am on click");
     model.removeDishFromMenu(id);
-    // console.log(model.removeDishFromMenu(id));
-  })
+    model.notify("removeDish");
+  });
+
+  $("#confirmDinner").on("click",function(){
+    console.log("confirm confirmDinner");
+    model.notify("confirmDinner");
+  });
+
 }
 

@@ -1,4 +1,3 @@
-//ExampleViewController Object constructor
 var GuestNumberViewController = function(view, model) {
 
  view.plusButton.click(function(){

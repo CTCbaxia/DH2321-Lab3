@@ -19,4 +19,5 @@ $(function() {
     var preparationView = new PreparationView($("#PreparationView"),model);
 
     var selectDishView = new SelectDishView($("#SelectDishView"),model);
+    var selectDishViewController = new SelectDishViewController(selectDishView,model);
 });
