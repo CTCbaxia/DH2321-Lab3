@@ -64,8 +64,9 @@
     .dishcontainer{
     	margin-top: 10px;
     	margin-bottom: 10px;
-    	padding: 0px 0px 10px 10px;
-        border: 0.5px solid gray; 
+        margin-left: 10px;
+    	padding: 0px 0px 0px 0px;
+      /*  border: 0.5px solid gray;  */
     }/*, overviewPage repeat*/
     .dishbox{
     	margin: 10px 20px 10px 10px;
@@ -187,7 +188,10 @@
         height: 20px;
         padding: 5px;
         text-align: right;
-
+    }
+    #confirmDinner{
+        
+       margin-left: 25px;
     }
 
 
@@ -214,4 +218,9 @@
     .dishpretitle{
         font-weight: 400;
         font-size: 18px;
+    }
+    .MenuTotalPrice{
+        padding-top: 0;
+        padding-bottom: 10px;
+        text-align: right;
     }
