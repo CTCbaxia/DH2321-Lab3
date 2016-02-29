@@ -162,6 +162,10 @@
         font-style: bold; 
         padding-left: 25px;
     }
+    .backToMenu{
+        width:200px;
+        margin: 5px;
+    }
 
 
 
