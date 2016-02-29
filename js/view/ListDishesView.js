@@ -48,10 +48,7 @@ var ListDishesView = function (container, model){
 		}
         this.listAllDishes.html(alldishesHtml);
 
-        $(".confirm").on("click",function(){  
-	    var id = $(this).attr('id');
-	    model.addDishToMenu(id);
-	    });
+
  	};
  } 
 }

@@ -26,15 +26,10 @@
 	        background-size: 100%, 100%;
 	        margin-left: 15px;
 
-	    } /*怎么调整背景位置？*/
+	    }
 	    
 	 </style>
-<!--
-	    <script type="text/javascript">
-		var body = document.getElementsByTagName('body')[0];
-		body.style.backgroundImage = 'url(images/Thanksgiving-Dinner.jpg)';
-		</script>
--->
+
         <div class="row title">
             <h1>HOMELETTE</h1>
             <p>From the best chefs in the world directly into your kitchen</p>
@@ -60,21 +55,35 @@
 			<h1>HOMELETTE</h1>
 			<p id="demo">From the best chefs in the world directly into your kitchen</p>
 		</div>
-
+<!--Menu List-->
 		<div  class="row box">
 			<div class="col-md-3">
 				<table class="table">
 					<tr><h3>My Dinner</h3></tr>    
 	                <tr>
-		                Number of Guests: <div id = "GuestNumberView"> 
+		                Number of Guests: 
+		                <div id = "GuestNumberView"> 
 		                	<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+		                	<span id="numberOfGuests"></span>
 							<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-			            	<span id="numberOfGuests"></span>
 			            </div>
 	     			</tr>
 
                     <div id ="DinnerMenuView">
                     	<div id="dinnerMenu"></div>
+<!--                     	<td colspan="2"><button type="button" class="removeDish">delete</button></td> -->
+
+	                    
+
+	                    <script type="text/javascript">
+						removeDishFunction = function(){
+						var id = $(this).attr("id");
+						var updateMenuController = new UpdateMenuController(id, model);
+						}
+	                    </script>
+
+						
+
                     </div>
 
 					<tr>
@@ -131,7 +140,7 @@
 						<table class="ingtable">
 							<tr style="border-bottom: 1px solid gray; padding-bottom: 20px;">
 							<th colspan="4" style="padding-bottom: 10px;">
-							Ingredients for <span class = "numberOfPeople"></span> people</th>
+							Ingredients for <span class = "numberOfPeople" id="numberOfGuests"></span> people</th>
 							</tr>
 							<tbody id = "dishIngre"></tbody>
 							<tbody id = "dishPrice"></tbody>
@@ -269,5 +278,8 @@
 	<script src="js/Controller/DinnerMenuViewController.js"></script>
 	<script src="js/Controller/ListDishesViewController.js"></script>
 	<script src="js/Controller/OverviewController.js"></script>
+	<script src="js/Controller/SelectDishViewController.js"></script>
+	<script src="js/Controller/UpdateMenuController.js"></script>
+	
   </body>
 </html>

@@ -1,5 +1,5 @@
 var ListDishesViewController = function(view, model){
-  view.selectType.change(function(){
+    view.selectType.change(function(){
   	var dishType = view.selectType.val();
   	model.setSelectedDish(dishType);
 
@@ -22,28 +22,14 @@ var ListDishesViewController = function(view, model){
     var value = [];
     var selectClass = $(".selectDish");
     var id = $(this).attr('id');
-
     model.setDishID(id);
     $(".confirm").attr('id',id);
   });
-
-  $(".confirm").on("click",function(){  
-    var id = $(this).attr('id');
-    model.addDishToMenu(id);
-  });
-
-  // //remove dish function
-  // $(".removeDish").on("click",function(){
+  
+  //unused 
+  // $(".confirm").on("click",function(){  
   //   var id = $(this).attr('id');
-  //   console.log(id);
-  //   model.removeDishFromMenu(id);
-  //   // console.log(model.removeDishFromMenu(id));
-  // })
-
-
-  $("#confirmDinner").on("click",function(){
-    console.log("confirm confirmDinner");
-    model.notify("confirmDinner");
-  })
+  //   model.addDishToMenu(id);
+  // });
 
 }

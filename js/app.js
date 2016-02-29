@@ -1,8 +1,10 @@
-$(function() {
 	//We instantiate our model
-	var model = new DinnerModel();
-	//var view = new DinnerView();
-	
+	var model;
+
+$(function() {
+
+	model = new DinnerModel();
+
 	//And create the needed controllers and views
 	var guestNumberView = new GuestNumberView($("#GuestNumberView"),model);
 	var guestNumberViewController = new GuestNumberViewController(guestNumberView,model);
@@ -19,4 +21,5 @@ $(function() {
     var preparationView = new PreparationView($("#PreparationView"),model);
 
     var selectDishView = new SelectDishView($("#SelectDishView"),model);
+    var selectDishViewController = new SelectDishViewController(selectDishView,model);
 });

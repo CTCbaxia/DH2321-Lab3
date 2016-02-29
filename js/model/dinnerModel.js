@@ -127,15 +127,16 @@ var DinnerModel = function() {
 	this.getDishIngredients = function(id) {
 		var thisDish;
 		thisDish = this.getDish(id);
+
 		var ingredients = thisDish.ingredients;
-		
-		var guestNum = this.getNumberOfGuests();
-		//console.log(guestNum);
-		for (var j = 0; j < ingredients.length; j++) {
-				ingredients[j].quantity = guestNum * ingredients[j].quantity;
-				ingredients[j].price = guestNum * ingredients[j].price;
-			};
+		// var guestNum = this.getNumberOfGuests();
+		// for (var i = 0; i < ingredients.length; i++) {
+		// 		ingredients[i].quantity = guestNum * ingredients[i].quantity;
+		// 		ingredients[i].price = guestNum * ingredients[i].price;
 			
+		// };
+		// console.log(ingredients[0].quantity);
+
 		return ingredients;
 	}
 
@@ -143,10 +144,11 @@ var DinnerModel = function() {
 		var thisDish;
 		thisDish = this.getDish(id);
 		var ingredients = thisDish.ingredients;
+		var guestNum = this.getNumberOfGuests();
 		//ingredients = this.getDishIngredients(id);
 		var totalPrice = 0;
 		for (var i = 0; i < ingredients.length; i++) {
-			totalPrice += ingredients[i].price;
+			totalPrice += ingredients[i].price * guestNum;
 		};
 		return totalPrice;
 	}
@@ -187,40 +189,47 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		//TODO Lab 2 
-		// Get the dish that is supposed to add
-		var dish = this.getDish(id);
-        var type = dish.type;
-        
-        // if the menu is null, then directly add the dish, or varify whether it has the same type of didsh in the menu
-        if (menu.length == 0) {
-        	menu.push(id);
-        	console.log("length is 0");
-        }else{
-        // set the index of the same type of dish in the menu; find the same type of dish in the menu and get the index
-        	var index = -1;
-        	for (var i = 0; i < menu.length; i++) {
-        	   var dishInMenu = this.getDish(menu[i]);
-        	   if (type == dishInMenu.type) {
-        	   	  index = i;
-        	   }; 
-        	 };
-        	  if (index != -1) {
-        	   	  menu[index] = id;
-        	   }else{
-        	   	  menu.push(id);
-        	   };
-          };
+		var selectDish = this.getDish(id);//get all the info of the dish
+		var selectDishType = selectDish.type;
+		var theSameType = -1;
+		// console.log(selectDish);
+		
+		if (menu.length == 0) {
+			//if there is nothing in the menu, add directly
+			menu.push(id); 
+			console.log(menu);
+		} else{
+			for (var i = 0; i< menu.length; i++) {
+			//if there is the same type in the menu, assign the value of the theSameType with the array index
+				var dishInMenu = this.getDish(menu[i]);
+				var dishInMenuType = dishInMenu.type;
+				if (dishInMenuType == selectDishType) {
+					theSameType = i				
+				};
+			};
+			if (theSameType != -1) {
+				menu[theSameType] = id;
+			}else{
+				console.log(theSameType);
+				menu.push(id); 
+			};
+		};
+		this.notify("addMenu");
+	};
 
-        this.notify("addMenu");
-	}
+       
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
+		console.log(id); 
+
 		for (var i = 0; i< menu.length; i++) {
 			if (menu[i] == id) {
+				console.log(menu[i]);
 				menu.splice(i,1);
 			};
 		};
+		console.log("model success" + menu); 
 		this.notify("removeDish");
 
 	}
