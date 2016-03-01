@@ -195,6 +195,26 @@ var DinnerModel = function() {
         };       
         return totalPrice;
 	}
+	this.getTotalPendingPrice = function() {
+		//TODO Lab 2
+        var dish;
+        var allIngredients = this.getAllIngredients();
+        var guestNum = this.getNumberOfGuests();
+        var totalPrice = 0;
+       
+        //The loop to get all the price and pass the value of the price
+        for (var i = 0; i < allIngredients.length; i++) {
+        	totalPrice += (allIngredients[i].price * guestNum);
+        };       
+        var pendingindex = pendingmenu.length - 1;
+        var pendingDish = this.getDish(pendingmenu[pendingindex]);
+        var pendingDishPrice = this.getTotalDishPrice(pendingDish.id);
+        totalPrice += (pendingDishPrice * guestNum)
+
+        return totalPrice;
+	}
+
+
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
