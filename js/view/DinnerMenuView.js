@@ -28,7 +28,7 @@ var DinnerMenuView = function(container,model){
 
 			var menu = model.getFullMenu();
 			var menuList = "";
-			console.log(menu);
+
 			for (var i = 0; i < menu.length; i++) {
 	   		 var id = menu[i].id;
 	    	 var name = menu[i].name;

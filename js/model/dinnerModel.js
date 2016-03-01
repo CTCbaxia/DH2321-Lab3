@@ -204,29 +204,9 @@ var DinnerModel = function() {
         for (var i = 0; i < pendingmenu.length; i++){
         	totalPendingPrice += (this.getTotalDishPrice(pendingmenu[i]) * guestNum);
         }
-
        
         return totalPendingPrice;
 	}
-	// //TEST
-	// this.getTotalPendingPrice = function() {
-	// 	//TODO Lab 2
- //        var dish;
- //        var allIngredients = this.getAllIngredients();
- //        var guestNum = this.getNumberOfGuests();
- //        var totalPrice = 0;
-       
- //        //The loop to get all the price and pass the value of the price
- //        for (var i = 0; i < allIngredients.length; i++) {
- //        	totalPrice += (allIngredients[i].price * guestNum);
- //        };       
- //        var pendingindex = pendingmenu.length - 1;
- //        var pendingDish = this.getDish(pendingmenu[pendingindex]);
- //        var pendingDishPrice = this.getTotalDishPrice(pendingDish.id);
- //        totalPrice += (pendingDishPrice * guestNum)
-
- //        return totalPrice;
-	// }
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
@@ -265,13 +245,12 @@ var DinnerModel = function() {
 		var selectDish = this.getDish(id);//get all the info of the dish
 		var selectDishType = selectDish.type;
 		var theSameType = -1;
-		// console.log(selectDish);
-		console.log(menu);
-		console.log(pendingmenu);
+
 		for(var i = 0; i< menu.length; i++) {
 			pendingmenu[i] = menu[i];
 		};
 		// pendingmenu = menu;
+
 
 		if (pendingmenu.length == 0) {
 			//if there is nothing in the menu, add directly
@@ -288,14 +267,15 @@ var DinnerModel = function() {
 				};
 			};
 			if (theSameType != -1) {
-				pendingmenu[theSameType] = id;
+				// pendingmenu[theSameType] = id;
+				pendingmenu.splice(theSameType,1);
+				pendingmenu.push(id); 
 			}else{
 				// console.log(theSameType);
 				pendingmenu.push(id); 
 			};
 		};
-		console.log(menu);
-		console.log(pendingmenu);
+
 		this.notify("addPending");
 	}
 	
@@ -321,6 +301,7 @@ var DinnerModel = function() {
 			this.notify("addMenu")
 
 		} else{
+			//似乎是没有用
 			for (var i = 0; i< pendingmenu.length; i++) {
 				if (pendingmenu[i] == id) {
 					pendingmenu.splice(i,1);
