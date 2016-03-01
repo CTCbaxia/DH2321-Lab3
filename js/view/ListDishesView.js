@@ -15,7 +15,7 @@ var ListDishesView = function (container, model){
 
     for (var i = 0; i < dishes.length; i++) {
 
-		alldishesHtml +=  "<div class=\"col-md-3 dishbox\">" + 
+		alldishesHtml +=  "<div class=\"col-xs-3 dishbox\">" + 
 		                       "<a href=\'#\' class=\'selectDish\' id=\'"+ dishes[i].id +"\'><div class=\" dish\" id=\'dishID\' > " +
 							     "<center>" + " <img src=\'images/" + dishes[i].image + "\' ></center> " +
 							     " <div class=\"dishname\">" + dishes[i].name + "</div>" +
@@ -38,7 +38,7 @@ var ListDishesView = function (container, model){
 
     	for (var i = 0; i < dishes.length; i++) {
     		//console.log("hi");
-			alldishesHtml +=  "<div class=\"col-md-3 dishbox\">" + 
+			alldishesHtml +=  "<div class=\"col-xs-3 dishbox\">" + 
 		                       "<a href=\'#\' class=\'selectDish\' id=\'"+ dishes[i].id +"\'><div class=\" dish\" id=\'dishID\' > " +
 							     "<center>" + " <img src=\'images/" + dishes[i].image + "\' ></center> " +
 							     " <div class=\"dishname\">" + dishes[i].name + "</div>" +

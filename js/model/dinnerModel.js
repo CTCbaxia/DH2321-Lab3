@@ -6,6 +6,7 @@ var DinnerModel = function() {
     
     var numberOfGuests = 1;
     var menu = [];
+    var pendingmenu = [];
     var dishType = '';
     var filter = '';
     var dishID;
@@ -76,6 +77,7 @@ var DinnerModel = function() {
         dishID = id;
         //console.log("set id "+ dishID);
         this.notify("dishDetail");
+
 	}
 
 	this.getDishID = function(){
@@ -102,6 +104,15 @@ var DinnerModel = function() {
 		};
         return dishesOnMenu;
 	}
+	this.getFullPendingMenu = function() {
+		//TODO Lab 2
+		var dishesOnPendingMenu = [];
+		for (var i = 0; i < pendingmenu.length; i++) {
+			dishesOnPendingMenu.push(this.getDish(pendingmenu[i]));
+		};
+        return dishesOnPendingMenu;
+	}
+
 
     this.getDishName = function(id){
     	var thisDish;
@@ -197,7 +208,7 @@ var DinnerModel = function() {
 		if (menu.length == 0) {
 			//if there is nothing in the menu, add directly
 			menu.push(id); 
-			console.log(menu);
+			// console.log(menu);
 		} else{
 			for (var i = 0; i< menu.length; i++) {
 			//if there is the same type in the menu, assign the value of the theSameType with the array index
@@ -210,27 +221,87 @@ var DinnerModel = function() {
 			if (theSameType != -1) {
 				menu[theSameType] = id;
 			}else{
-				console.log(theSameType);
+				// console.log(theSameType);
 				menu.push(id); 
 			};
 		};
 		this.notify("addMenu");
-	};
+	}
+	//add pending to the menu
+	this.addDishToPendingMenu = function(id) {
+		//TODO Lab 2 
+		var selectDish = this.getDish(id);//get all the info of the dish
+		var selectDishType = selectDish.type;
+		var theSameType = -1;
+		// console.log(selectDish);
+		console.log(menu);
+		console.log(pendingmenu);
+		for(var i = 0; i< menu.length; i++) {
+			pendingmenu[i] = menu[i];
+		};
+		// pendingmenu = menu;
+
+		if (pendingmenu.length == 0) {
+			//if there is nothing in the menu, add directly
+			pendingmenu.push(id); 
+			// console.log(pendingmenu);
+
+		} else{
+			for (var i = 0; i< pendingmenu.length; i++) {
+			//if there is the same type in the menu, assign the value of the theSameType with the array index
+				var dishInMenu = this.getDish(pendingmenu[i]);
+				var dishInMenuType = dishInMenu.type;
+				if (dishInMenuType == selectDishType) {
+					theSameType = i				
+				};
+			};
+			if (theSameType != -1) {
+				pendingmenu[theSameType] = id;
+			}else{
+				// console.log(theSameType);
+				pendingmenu.push(id); 
+			};
+		};
+		console.log(menu);
+		console.log(pendingmenu);
+		this.notify("addPending");
+	}
+	
+
 
        
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		console.log(id); 
-
 		for (var i = 0; i< menu.length; i++) {
 			if (menu[i] == id) {
-				console.log(menu[i]);
+				// console.log(menu[i]);
 				menu.splice(i,1);
 			};
 		};
-		console.log("model success" + menu); 
+
 		this.notify("removeDish");
+
+	}
+	// from pending back to DishListView
+	this.pendingBackToList = function(id) {
+		if ($(".backToMenu").attr("key") ==1) {
+			this.notify("addMenu")
+
+		} else{
+			for (var i = 0; i< pendingmenu.length; i++) {
+				if (pendingmenu[i] == id) {
+					pendingmenu.splice(i,1);
+				};
+			};
+			this.notify("backToMenu");
+
+		};
+
+		$(".backToMenu").attr("key",0);
+		console.log(menu);
+		console.log(pendingmenu);
+
 
 	}
 

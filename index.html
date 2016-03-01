@@ -57,7 +57,7 @@
 		</div>
 <!--Menu List-->
 		<div  class="row box">
-			<div class="col-md-3">
+			<div class="col-xs-3">
 				<table class="table">
 					<tr><h3>My Dinner</h3></tr>    
 	                <tr>
@@ -71,6 +71,12 @@
 	     		</table>
 
                     <div id ="DinnerMenuView">
+<<<<<<< HEAD
+=======
+
+                    	<div id="dinnerMenu"></div>
+
+>>>>>>> Lab3_ctc
                     	<table id="dinnerMenu" class="table">
                     		<thead>
                     			<tr>
@@ -83,8 +89,8 @@
                     	</table>
 <!--                     	<td colspan="2"><button type="button" class="removeDish">delete</button></td> -->
 
-	                    
 
+	                    
 	                    <script type="text/javascript">
 						removeDishFunction = function(){
 						var id = $(this).attr("id");
@@ -92,7 +98,13 @@
 						}
 	                    </script>
 
+<<<<<<< HEAD
 					    <div class="MenuTotalPrice">Total Price： <span id="totalPrice"></span> SEK</div>	
+=======
+
+					    <div class="MenuTotalPrice">Total Price： <span id="totalPrice"></span> SEK</div>	
+
+>>>>>>> Lab3_ctc
 
                     </div>
 
@@ -103,23 +115,23 @@
 			</div>
 
 <!--Dish Display-->
-			<div class="col-md-9" id="dishMenu">
+			<div class="col-xs-9" id="dishMenu">
 				<div class="row box" id = "ListDishesView">
-					<div class="col-md-12">
+					<div class="col-xs-12">
 						<h3>select dish</h3>
 				    </div>
 
 					<div class="row" >
-						<div class="col-md-6">
-							<div class="col-md-6">
+						<div class="col-xs-6">
+							<div class="col-xs-6">
 								<input class="form-control" type="text" placeholder="Enter key words" id="keyWords">
 							</div>
-							<div class="col-md-3">
+							<div class="col-xs-3">
 								<button type="submit" class="btn btn-primary" id = "search">Search</button>			
 						    </div>	
 						</div>
 						
-						<div class="col-md-3">
+						<div class="col-xs-3">
 							<select class="form-control" id = "selection" >
 								<option value="all" selected>All</option>
 								<option value="starter" >Starter</option>
@@ -136,17 +148,17 @@
 <!--menuPage-->
 
 <!--Select Dish view-->
-			<div class="col-md-9 dishcontainer2" id="dishView">
+			<div class="col-xs-9 dishcontainer2" id="dishView">
 				<!--dish detail-->
 				<div class="row" id = "SelectDishView">
-					<div class="col-md-5 dish2">
+					<div class="col-xs-5 dish2">
 						<div class="dishtitle" id="dishName"></div>					
 						<div class="dishimg" id ="dishImg"></div>
 						<div class="dishdescription" id="dishInfo"></div>
-						<div><button type="button" id="backToMenu" style="width:200px;margin: 5px; ">Back to Select Dish</button></div>
+						<div><button type="button" class="backToMenu" >Back to Select Dish</button></div>
 				 	</div>
 
-				 	<div class="col-md-5 ingredients">
+				 	<div class="col-xs-5 ingredients">
 						<table class="ingtable">
 							<tr style="border-bottom: 1px solid gray; padding-bottom: 20px;">
 							<th colspan="4" style="padding-bottom: 10px;">
@@ -175,10 +187,10 @@
 		</div>
 
 		<div class="row box" id="filter2">
-			<div div class="col-md-9">
+			<div div class="col-xs-9">
 				<h2>My Dinner: <span class="numberOfPeople"></span> people</h2>
 			</div>
-			<div div class="col-md-3" style="padding-top:25px;">
+			<div div class="col-xs-3" style="padding-top:25px;">
 				<button type="button" id="backToMenu1">Go Back and Edit Dinner</button>
 			</div>
 		</div>
@@ -187,14 +199,14 @@
     <div id = "OverviewDinnerView">
 		<div  class="row box">
                 <center><div id = "listSelectDishes"></div></center>
-				    <div class="col-md-2" style="border-">
+				    <div class="col-xs-2" style="border-">
 				    	<div class="total" ><p>Total:</p></div>
 						<div class="price" id = "totalPrice"></div>
 				    </div>
 		</div>
 
 		<div class="row box">
-			<div class="col-md-2 col-md-offset-5">
+			<div class="col-xs-2 col-xs-offset-5">
 				<button type="button" id="printFullRcp" style="margin: 10px 10px 5px 25px;">Print Full Recipe</button>
 			</div>
 		</div>
@@ -238,7 +250,7 @@
 
       });
       //dishDetailPage
-      $("#backToMenu").click(function(){
+      $(".backToMenu").click(function(){
       $("#startPage").hide();
       $("#menuPage #dishMenu").show();
       $("#menuPage #dishView").hide();
