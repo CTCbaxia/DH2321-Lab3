@@ -17,25 +17,16 @@ var DinnerMenuView = function(container,model){
 						"<td style=\"text-align:right;\">" + price + "</td>" +
 						"<td>"+ "<button type=\"button\" class=\"removeDish\" id="+ menu[i].id +">" + "<span class = \"glyphicon glyphicon-remove\"></span></button>" +"</td>" +//每列添加了button
 					"</tr>" ;
-<<<<<<< HEAD
-=======
-
->>>>>>> Lab3_ctc
 	};
         
     this.price.html(totalPrice);
 	this.dinnerMenu.html(menuList);
 
 	this.update = function(args){
-<<<<<<< HEAD
-		if (args == "addMenu" || args =="people"|| args == "removeDish") {
-			this.dinnerMenu = container.find("#dinnerMenu #tableBody");
-=======
 
 		if (args == "addMenu" || args =="people"|| args == "removeDish"||args == "backToMenu") {
 			this.dinnerMenu = container.find("#dinnerMenu");
 
->>>>>>> Lab3_ctc
 			var menu = model.getFullMenu();
 			var menuList = "";
 			for (var i = 0; i < menu.length; i++) {
@@ -53,8 +44,6 @@ var DinnerMenuView = function(container,model){
 
 
         this.price.html(totalPrice);
-<<<<<<< HEAD
-=======
 
 		this.dinnerMenu.html(menuList);
 		$(".removeDish").click(removeDishFunction);
@@ -94,17 +83,11 @@ var DinnerMenuView = function(container,model){
 		 //    model.notify("removeDish");
 		 //    });
 			
->>>>>>> Lab3_ctc
 		this.dinnerMenu.html(menuList);
 		$(".removeDish").click(removeDishFunction);
 
 		};
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> Lab3_ctc
 	}
 }
 

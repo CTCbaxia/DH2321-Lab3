@@ -79,7 +79,23 @@
                    		</thead>
                    		<tbody id = "tableBody"></tbody>
                    	</table>
+<!--
+=======
+                    <div id ="DinnerMenuView">
 
+                    	<table id="dinnerMenu" class="table">
+                    		<thead>
+                    			<tr>
+                    				<th>Dish Name</th>
+                    				<th>Cost</th>
+                    				<th></th>
+                    			</tr>
+                    		</thead>
+                    		<tbody id = "tableBody"></tbody>
+                    	</table>
+<!--                     	<td colspan="2"><button type="button" class="removeDish">delete</button></td> -->
+
+	                    
 	                    <script type="text/javascript">
 						removeDishFunction = function(){
 						var id = $(this).attr("id");
@@ -89,7 +105,6 @@
 
 				    <div class="MenuTotalPrice">SEK <span id="totalPrice"></span></div>	
                   </div>
-
 
 				<button type="button" class="btn btn-warning" style="width:70%;" id="confirmDinner">Confirm Dinner</button>			 
 			</div>
@@ -136,7 +151,8 @@
 						<div class="dishimg" id ="dishImg"></div>
 						<div class="dishdescription" id="dishInfo"></div>
 
-						<div><button type="button" id="backToMenu" class="btn btn-warning" style="width:163px;margin: 5px; "><span class="glyphicon glyphicon-chevron-left"></span>Back to Select Dish</button></div>
+						<div><button type="button" id="backToMenu" class="btn btn-warning backToMenu" style="width:163px;margin: 5px; "><span class="glyphicon glyphicon-chevron-left"></span>Back to Select Dish</button></div>
+
 
 				 	</div>
 
