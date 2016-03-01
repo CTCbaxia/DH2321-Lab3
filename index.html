@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <!--import index.CSS-->
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 
 
   </head>
@@ -68,9 +68,25 @@
 							<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
 			            </div>
 	     			</tr>
+	     		</table>
 
                     <div id ="DinnerMenuView">
+
                     	<div id="dinnerMenu"></div>
+
+                    	<table id="dinnerMenu" class="table">
+                    		<thead>
+                    			<tr>
+                    				<th>Dish Name</th>
+                    				<th>Cost</th>
+                    				<th></th>
+                    			</tr>
+                    		</thead>
+                    		<tbody id = "tableBody"></tbody>
+                    	</table>
+<!--                     	<td colspan="2"><button type="button" class="removeDish">delete</button></td> -->
+
+
 	                    
 	                    <script type="text/javascript">
 						removeDishFunction = function(){
@@ -79,11 +95,14 @@
 						}
 	                    </script>
 
-						
+
+					    <div class="MenuTotalPrice">Total Price： <span id="totalPrice"></span> SEK</div>	
+
+
                     </div>
 
 					<tr>
-						<td colspan="2"><button type="button" style="width:100%;" id="confirmDinner">Confirm Dinner</button></td>	
+						<td colspan="2"><button type="button" class="btn btn-primary" style="width:70%;" id="confirmDinner">Confirm Dinner</button></td>	
 					</tr>
 				</table> 	 
 			</div>
@@ -115,7 +134,7 @@
 						</div>
 					</div>
                     <div class="row dishcontainer">
-                   		<span id="listAllDishes"></span>
+                   		<div id="listAllDishes"></div>
 					</div>
 				</div>	
 			</div>
