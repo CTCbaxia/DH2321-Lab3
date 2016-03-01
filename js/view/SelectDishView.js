@@ -34,13 +34,13 @@ var SelectDishView = function (container, model){
 			var getIngre = "";
 			for (var i = 0; i < allIngre.length; i++) {
 
-				getIngre +=  "<tr>" +
-						"<td>" + parseFloat((allIngre[i].quantity * guestNum).toFixed(2)) + "</td>" +
-						"<td>" + allIngre[i].unit + "</td>" +
-					    "<td style= \"width: 55%;\"> " + allIngre[i].name + "</td>" +
-						"<td> SEK </td> " + " " +
-						"<td> " + (allIngre[i].price * guestNum) + " </td>" +
-					 "</tr></br>";
+				getIngre += "<tr>" +
+								"<td>" + parseFloat((allIngre[i].quantity * guestNum).toFixed(2)) + "</td>" +
+								"<td>" + allIngre[i].unit + "</td>" +
+					 		    "<td style= \"width: 55%;\"> " + allIngre[i].name + "</td>" +
+								"<td> SEK </td> " + " " +
+								"<td> " + (allIngre[i].price * guestNum) + " </td>" +
+							"</tr></br>";
 			};
 			this.dishIngre.html(getIngre);
 
@@ -50,7 +50,7 @@ var SelectDishView = function (container, model){
             printPrice = "<tr>" +
 						"<td> </td>" +
 						"<td> </td>" +
-					    "<td style= \"width: 55%;\">Total Price</td>" +
+					    "<td style= \"width: 55%;\">Total</td>" +
 						"<td> SEK </td> " + " " +
 						"<td> " + totalPrice + " </td>" +
 					 "</tr></br>";

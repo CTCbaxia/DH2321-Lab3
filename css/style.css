@@ -44,6 +44,7 @@
 
     /*menuPage CSS*/
     .box{ 
+        height: 100%;
     	margin-top: 0px;
     	margin-bottom: 0px;
     	padding-left: 5px;
@@ -57,10 +58,10 @@
     	background: rgb(249,229,156)
     }
 
-    .table{
-    	border: 0.5px solid gray; 
-    }/*dishDetail repeat, overviewPage repeat*/
-
+    .search{
+        padding:0px;
+    }
+    
     .dishcontainer{
     	margin-top: 10px;
     	margin-bottom: 10px;
@@ -72,23 +73,25 @@
     	margin: 5px 5px 10px 10px;
     	padding: 0px 0px 10px 0px;
         width: 20%;
-        height: 10%;
+        height: 40%;
     }/*dishDetail repeat, overviewPage repeat*/
 
     .dish{
-    	margin: 5px;
-    	padding: 0px;
-    	border: 1px solid black; 
+    	margin-top: 35px;
+        margin-bottom: 3px;
+        padding: 0px;
+        border: 1px solid black;
     }/*, overviewPage repeat, printPage*/
     .dish img{
     	width: 100%;
     	height: 100px;
     }/*, printPage*/
     .dishname{
+        margin-top: auto;
+        height: 40px;
   		text-align: center;  
   		background-color: #D8D8D8;
-        padding-top: 5px;
-        padding-bottom: 5px;
+        padding-top: 3px;
 
     }/*, overviewPage repeat*/
 
@@ -103,6 +106,9 @@
 
 
     /*dishDetailPage*/
+    #SelectDishView {
+    margin-bottom: 50px;
+    }
 
     .ingtable{
         width: 100%;
@@ -124,15 +130,24 @@
 
 
     .dish2{
-        margin: 5px;
-        padding: 20px;
-        margin-right: 100px;
-
+        margin-left: 40px;
+        margin-top: 40px;
+        margin-right: 20px;
+        margin-bottom: 40px;
+        padding: 5px;
     }
 
     .dishimg{
         margin: 30px 5px 10px 5px;
- 
+        width: 60%;
+        height: 100%;
+    }
+
+    .printImg{
+        margin: 15px 5px 10px 5px;
+        width: 20%;
+        height: 100%;
+        padding: 20px;
     }
 
     .dishimg img{
@@ -144,21 +159,22 @@
         height: 20px;
         padding-left: 5px;
         font-size: 30px;
-        font-style: bold;  
-            
+        font-style: bold;            
     }
 
     .dishdescription{
-        width: 400px;
+        width: 100%;
         padding: 5px;
         text-align: justify;
     }
 
     .ingredients{
-        margin-left:20px;
+        margin-left: 35px;
+        margin-bottom: 40px;
+        margin-top: 40px;
+        margin-right: 10px;
         padding: 20px;
         background-color: rgb(249,229,156);
-
         border: 0.5px solid gray; 
 
     }
@@ -175,6 +191,13 @@
 
 
     /*overviewPage*/
+    #listSelectDishes {
+    margin-left: auto;
+    align-items: center;
+    margin-right: auto;
+    justify-content: center;
+    display: flex;
+    }
     #filter2{
         padding-top: 5px;
         background: rgb(249,229,156)
@@ -182,20 +205,25 @@
 
     .total{
         height:140px; 
-        position: relative;"
+        position: relative;
+        /*margin-top: 170px;*/
+        margin: auto;
     }
     .total p{
         position: absolute;
         bottom: 0px;
         padding:0px;
-        margin: 0px;
-
+        margin: auto;
+        font-size: 20px;
     }
 
     .price{
         height: 20px;
         padding: 5px;
+        margin-bottom: 10px;
         text-align: right;
+        font-weight: bold;
+        margin-right: 5px;
     }
     #confirmDinner{
         
@@ -221,11 +249,11 @@
         padding: 20px; 
     }
     .dishpre{
-        padding: 10px;      
+        padding: 20px;      
     }
     .dishpretitle{
-        font-weight: 400;
-        font-size: 18px;
+        font-weight: bold;
+        font-size: 25px;
     }
     .MenuTotalPrice{
         padding-top: 0;

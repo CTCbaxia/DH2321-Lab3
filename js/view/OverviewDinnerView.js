@@ -13,8 +13,9 @@ var OverviewDinnerView = function (container, model){
 			this.numberOfPeople = container.find(".numberOfPeople");
 			this.numberOfPeople.html(model.getNumberOfGuests());
 			this.listSelectDishes = container.find("#listSelectDishes");
-			this.totalPrice = container.find("#totalPrice");
-    		this.totalPrice.html(model.getTotalMenuPrice());
+			//this.totalPrice = container.find("#totalPrice");
+			var totalPrice = model.getTotalMenuPrice();
+    		//this.totalPrice.html(model.getTotalMenuPrice());
 			var selectDishes = "";
 			var fullMenu = model.getFullMenu();
 
@@ -29,10 +30,13 @@ var OverviewDinnerView = function (container, model){
 						    "<div class=\"dishname\">" + fullMenu[i].name + "</div>" +
 						    "</div>" +
 						    "<div class= \"price\"> " +
-							dishPrice + "SEK" +
+							dishPrice + " SEK" +
 						    "</div>" +
 				        "</div>";
 			};
+			selectDishes += "<div class=\"col-xs-2\" style=\"border\">" +
+				    			"<div class=\"total price\" ><p>Total: " + totalPrice + " SEK" + "</p></div>" +
+				    		"</div>";
         	this.listSelectDishes.html(selectDishes);
 		};
 	}
