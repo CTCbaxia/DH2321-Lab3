@@ -14,8 +14,7 @@ var DinnerMenuView = function(container,model){
 	    
         menuList += "<tr>" +
 						"<td>"+ name +"</td>" +
-						"<td style=\"text-align:right;\">" + price + "</td>" +
-						"<td>"+ "<button type=\"button\" class=\"removeDish\" id="+ menu[i].id +">" + "<span class = \"glyphicon glyphicon-remove\"></span></button>" +"</td>" +//每列添加了button
+						"<td style=\"text-align:right;\">" + price + " " + "<button type=\"button\" class=\"removeDish\" id="+ menu[i].id +">" + "<span class = \"glyphicon glyphicon-remove\"></span></button>" +"</td>" +//每列添加了button
 					"</tr>" ;
 	};
         
@@ -25,7 +24,7 @@ var DinnerMenuView = function(container,model){
 	this.update = function(args){
 
 		if (args == "addMenu" || args =="people"|| args == "removeDish"||args == "backToMenu") {
-			this.dinnerMenu = container.find("#dinnerMenu");
+			//this.dinnerMenu = container.find("#dinnerMenu");
 
 			var menu = model.getFullMenu();
 			var menuList = "";
@@ -37,8 +36,7 @@ var DinnerMenuView = function(container,model){
 	    
         menuList += "<tr>" +
 						"<td>"+ name +"</td>" +
-						"<td style=\"text-align:right;\">" + price + "</td>" +
-						"<td>"+ "<button type=\"button\" class=\"removeDish\" id="+ menu[i].id +">" + "<span class = \"glyphicon glyphicon-remove\"></span>" + "</button>" +"</td>" +//每列添加了button
+						"<td style=\"text-align:right;\">" + price + " " + "<button type=\"button\" class=\"removeDish\" id="+ menu[i].id +">" + "<span class = \"glyphicon glyphicon-remove\"></span>" + "</button>" +"</td>" +//每列添加了button
 					"</tr>" ;
 			};
 
@@ -49,7 +47,7 @@ var DinnerMenuView = function(container,model){
 		$(".removeDish").click(removeDishFunction);
 
 		}else if (args == "addPending") {
-			this.dinnerMenu = container.find("#dinnerMenu");
+			//this.dinnerMenu = container.find("#dinnerMenu");
 			var menu = model.getFullPendingMenu();
 			var menuList = "";
 			for (var i = 0; i < menu.length-1; i++) {
@@ -59,18 +57,17 @@ var DinnerMenuView = function(container,model){
 	    	 
 	    
        		 menuList += "<tr>" +
-						"<td>"+ name +"</td>" +
-						"<td style=\"text-align:right;\">" + price + "</td>" +
-						"<td>"+ "<button type=\"button\" class=\"removeDish\" id="+ menu[i].id +">" + "<span class = \"glyphicon glyphicon-remove\"></span>" + "</button>" +"</td>" +//每列添加了button
-					"</tr>" ;
+							"<td>"+ name +"</td>" +
+							"<td style=\"text-align:right;\">" + price + "<button type=\"button\" class=\"removeDish\" id="+ menu[i].id +">" + "<span class = \"glyphicon glyphicon-remove\"></span>" + "</button>" +"</td>" +//每列添加了button
+						"</tr>" ;
 			};
 			var index = menu.length-1;
 			var pendingID = menu[index].id;
-			menuList += "<tr>" +
-						"<td>"+ "pending" +"</td>" +
-						"<td style=\"text-align:right;\">" + model.getTotalDishPrice(pendingID) + "</td>" +
+			menuList += "<tr class = \" pending\">" +
+							"<td>"+ "pending" +"</td>" +
+							"<td style=\"text-align:right;\">" + model.getTotalDishPrice(pendingID) + "</td>" +
 						// "<td>"+ "<button type=\"button\" class=\"removeDish\" id="+ menu[i].id +">" + "<span class = \"glyphicon glyphicon-remove\"></span>" + "</button>" +"</td>" +//每列添加了button
-					"</tr>" ;
+						"</tr>" ;
 			
 
 			var totalPrice = model.getTotalMenuPrice();
