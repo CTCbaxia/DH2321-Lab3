@@ -11,7 +11,7 @@ var PreparationView = function (container, model){
 			//var price = model.getTotalDishPrice(i);
 	        console.log("i am print");
 			PrintDishes += "<div class=\"row\" >" +	               
-			               "<div class= \"col-xs-2 dishimg\">" +
+			               "<div class= \"col-xs-2 printImg\">" +
 							  "<div class= \"dish\"> " +
 							  "<div><img src=\'images/" + fullMenu[i].image + "\'></div>" +
 							  "</div>" +
