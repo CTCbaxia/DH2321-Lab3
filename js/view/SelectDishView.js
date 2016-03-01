@@ -9,7 +9,6 @@ var SelectDishView = function (container, model){
 			
 			var dishID = model.getDishID();	
 			var totalPrice = model.getTotalDishPrice(dishID);
-			// model.addDishToMenu(dishID);
 		
 		
    			//Get the dish Name
@@ -34,8 +33,9 @@ var SelectDishView = function (container, model){
 			var allIngre = model.getDishIngredients(dishID);
 			var getIngre = "";
 			for (var i = 0; i < allIngre.length; i++) {
+
 				getIngre +=  "<tr>" +
-						"<td>" + (allIngre[i].quantity * guestNum) + "</td>" +
+						"<td>" + parseFloat((allIngre[i].quantity * guestNum).toFixed(2)) + "</td>" +
 						"<td>" + allIngre[i].unit + "</td>" +
 					    "<td style= \"width: 55%;\"> " + allIngre[i].name + "</td>" +
 						"<td> SEK </td> " + " " +
@@ -57,10 +57,10 @@ var SelectDishView = function (container, model){
 			this.dishPrice.html(printPrice);
 
 
-	        $(".confirm").on("click",function(){  
-		    var id = $(this).attr('id');
-		    model.addDishToMenu(id);
-		    });
+	     //    $(".confirm").on("click",function(){  
+		    // var id = $(this).attr('id');
+		    // model.addDishToMenu(id);
+		    // });
 
 
 		};
