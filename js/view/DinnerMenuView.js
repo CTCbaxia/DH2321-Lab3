@@ -68,7 +68,7 @@ var DinnerMenuView = function(container,model){
 			var pendingID = menu[index].id;
 			menuList += "<tr>" +
 						"<td>"+ "pending" +"</td>" +
-						"<td style=\"text-align:right;\">" + model.getTotalDishPrice(pendingID) + "</td>" +
+						"<td style=\"text-align:right;\">" + model.getTotalDishPrice(pendingID) + "  " + "</td>" +
 						// "<td>"+ "<button type=\"button\" class=\"removeDish\" id="+ menu[i].id +">" + "<span class = \"glyphicon glyphicon-remove\"></span>" + "</button>" +"</td>" +//每列添加了button
 					"</tr>" ;
 			
