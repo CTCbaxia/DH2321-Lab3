@@ -28,6 +28,7 @@ var DinnerMenuView = function(container,model){
 
 			var menu = model.getFullMenu();
 			var menuList = "";
+			console.log(menu);
 			for (var i = 0; i < menu.length; i++) {
 	   		 var id = menu[i].id;
 	    	 var name = menu[i].name;
@@ -40,8 +41,8 @@ var DinnerMenuView = function(container,model){
 					"</tr>" ;
 			};
 
+        this.price.html(model.getTotalMenuPrice());
 
-        this.price.html(totalPrice);
 
 		this.dinnerMenu.html(menuList);
 		$(".removeDish").click(removeDishFunction);
@@ -70,7 +71,8 @@ var DinnerMenuView = function(container,model){
 						"</tr>" ;
 			
 
-			var totalPrice = model.getTotalMenuPrice();
+			var totalPrice = model.getTotalPendingPrice();
+
         	this.price.html(totalPrice);
 
 	
