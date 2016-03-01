@@ -43,6 +43,7 @@ var DinnerMenuView = function(container,model){
 
         this.price.html(model.getTotalMenuPrice());
 
+
 		this.dinnerMenu.html(menuList);
 		$(".removeDish").click(removeDishFunction);
 
@@ -71,6 +72,7 @@ var DinnerMenuView = function(container,model){
 			
 
 			var totalPrice = model.getTotalPendingPrice();
+
         	this.price.html(totalPrice);
 
 	
