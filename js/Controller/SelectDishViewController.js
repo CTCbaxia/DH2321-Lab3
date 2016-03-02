@@ -7,9 +7,9 @@ var SelectDishViewController = function(view, model){
   var id;
   $(".confirm").on("click",function(){  
     id = $(this).attr('id');
-    $(".backToMenu").attr("key",1);
+    $(".backToMenu").attr("key",1);//marked as 1 if the dish is added
     model.addDishToMenu(id);
-    // console.log($(".backToMenu").attr("key"));
+
     $(".selectDish").attr("keyDetail",0);
     console.log($(".selectDish").attr("keyDetail"));
   });

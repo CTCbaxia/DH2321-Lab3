@@ -43,7 +43,7 @@ var DinnerModel = function() {
 		};
 		//to check where is it
 		console.log($(".selectDish").attr("keyDetail"));
-			this.notify("people");
+		this.notify("people");
 	    
 	}
 
