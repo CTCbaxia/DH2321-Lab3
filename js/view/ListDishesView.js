@@ -16,12 +16,22 @@ var ListDishesView = function (container, model){
     for (var i = 0; i < dishes.length; i++) {
 
 		alldishesHtml +=  "<div class=\"col-xs-3 dishbox\">" + 
-		                       "<a href=\'#\' class=\'selectDish\' id=\'"+ dishes[i].id +"\'><div class=\" dish\" id=\'dishID\' > " +
-							     "<center>" + " <img src=\'images/" + dishes[i].image + "\' ></center> " +
-							     " <div class=\"dishname\">" + dishes[i].name + "</div>" +
+		                       "<a href=\'#\' class=\'selectDish\' id=\'"+ dishes[i].id +"\'>" +
+		                       "<div class=\" dish\" id=\'dishID\' > " +
+							      "<center>" + " <img src=\'images/" + dishes[i].image + "\' ></center> " +
+							      " <div class=\"dishname\">" + dishes[i].name + "</div>" +
 							   "</div></a>" + 
 							   "<div class=\"description\"> " + dishes[i].description + "</div>" +
 					      "</div>";
+		// alldishesHtml +=  "<div class=\"col-sm-6 col-md-4\">" +
+		// 				    "<div class=\"thumbnail\" class=\'selectDish\' id=\'"+ dishes[i].id +"\'>" +
+		// 				      " <img src=\'images/" + dishes[i].image + "\' >" +
+		// 				       "<div class=\"caption\"> " +
+		// 				        "<h3>" +  dishes[i].name + "</h3>" +
+		// 				        "<p>" + dishes[i].description + "</p>" +
+		// 				     "</div>" +
+		// 				    "</div>" +
+		// 				  "</div>" ;
 					  }
 
      this.listAllDishes.html(alldishesHtml);

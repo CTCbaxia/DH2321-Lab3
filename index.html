@@ -37,7 +37,7 @@
 				lorem ipsum dolor sit amet, 
 			</div>
 			<div class="startbutton">start quickly</div>
-			<button type="button" class="btnStart btn-warning"><a href="#menuPage">Create new dinner</a></button>
+			<button type="button" class="btn btnStart btn-warning"><a href="#menuPage">Create new dinner</a></button>
 			
 		</div>
 
@@ -54,51 +54,39 @@
 <!--Menu List-->
 		<div  class="row box">
 			<div class="col-xs-3">
-				<table class="table">
-					<tr><h3>My Dinner</h3></tr>    
-	                <tr>
-		                Number of Guests: 
-		                <div id = "GuestNumberView"> 
+				<h3>My Dinner</h3>
+			    <div class = "panel panel-default">
+			   	    <div class="panel-body">
+		                <div>Number of Guests:</div> 
+		                <div class="col-xs-7" id = "GuestNumberView"> 
 		                	<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
 		                	<span id="numberOfGuests"></span>
 							<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
 			            </div>
-	     			</tr>
-	     		</table>
+
+			   	    </div>
+			    </div>
+				
+
                 
                 <div id ="DinnerMenuView" > 
                     <div class="panel panel-default">
                     	<div class="panel-body">
                     		<table id="dinnerMenu" class="table">
-                    	<thead>
-                   			<tr>
-                   				<th>Dish Name</th>
-                   				<th>Cost</th>
-                   			</tr>
-                   		</thead>
-                   		<tbody id = "tableBody">
-                		</tbody>
-                   	</table>
+
+		                    	<thead>
+		                   			<tr>
+		                   				<th>Dish Name</th>
+		                   				<th>Cost</th>
+		                   				<th></th>
+		                   			</tr>
+		                   		</thead>
+		                   		<tbody id = "tableBody">
+		                		</tbody>
+                   			</table>
+                   			<div class="MenuTotalPrice price">Total Price:  <span id="totalPrice"></span> SEK </div>
                     	</div>
-                    	
                     </div>
-                    
-<!--
-=======
-                    <div id ="DinnerMenuView">
-
-                    	<table id="dinnerMenu" class="table">
-                    		<thead>
-                    			<tr>
-                    				<th>Dish Name</th>
-                    				<th>Cost</th>
-                    				<th></th>
-                    			</tr>
-                    		</thead>
-                    		<tbody id = "tableBody"></tbody>
-                    	</table>
-<!--                     	<td colspan="2"><button type="button" class="removeDish">delete</button></td> -->
-
 	                    
 	                    <script type="text/javascript">
 						removeDishFunction = function(){
@@ -106,8 +94,7 @@
 						var updateMenuController = new UpdateMenuController(id, model);
 						}
 	                    </script>
-
-				    <div class="MenuTotalPrice">SEK <span id="totalPrice"></span></div>	
+				 	
                   </div>
 
 				<button type="button" class="btn btn-warning" style="width:70%;" id="confirmDinner">Confirm Dinner</button>			 
@@ -136,9 +123,11 @@
 							<button type="submit" class="btn btn-primary" id = "search">Search</button>
 						</div>
 					</div>
-                    <div class="row dishcontainer">
+               <!--     <div class="row dishcontainer">
                    		<div id="listAllDishes"></div>
 					</div>
+				-->
+				    <div class="row" id="listAllDishes"></div>
 				</div>	
 			</div>
 <!--menuPage-->
