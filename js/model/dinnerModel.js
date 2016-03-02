@@ -43,7 +43,7 @@ var DinnerModel = function() {
 		};
 		//to check where is it
 		console.log($(".selectDish").attr("keyDetail"));
-			this.notify("people");
+		this.notify("people");
 	    
 	}
 
@@ -112,6 +112,8 @@ var DinnerModel = function() {
 			dishesOnPendingMenu.push(this.getDish(pendingmenu[i]));
 		};
         return dishesOnPendingMenu;
+        console.log(menu);
+        console.log(pendingmenu);
 	}
 
 
@@ -245,7 +247,7 @@ var DinnerModel = function() {
 		var selectDish = this.getDish(id);//get all the info of the dish
 		var selectDishType = selectDish.type;
 		var theSameType = -1;
-
+		
 		for(var i = 0; i< menu.length; i++) {
 			pendingmenu[i] = menu[i];
 		};
@@ -279,7 +281,21 @@ var DinnerModel = function() {
 		this.notify("addPending");
 	}
 	
+	this.syncPendingMenu = function(){
+		var lastelement = pendingmenu.length - 1;
+		if(menu.length == 0){
+					pendingmenu.splice(i,1);
+		}else{
+		for(var i = 0; i< menu.length; i++) {
+				pendingmenu[i] = menu[i];
+				pendingmenu.splice(lastelement,1);
+			}
+		};
 
+		console.log("ok");
+		// console.log(pendingmenu);
+		return pendingmenu;
+	}
 
        
 
@@ -291,7 +307,11 @@ var DinnerModel = function() {
 				menu.splice(i,1);
 			};
 		};
-
+		console.log(menu);
+		console.log(pendingmenu);
+		this.syncPendingMenu();
+		console.log(menu);
+		console.log(pendingmenu);
 		this.notify("removeDish");
 
 	}
