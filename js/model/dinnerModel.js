@@ -41,9 +41,10 @@ var DinnerModel = function() {
 		}else{
 			numberOfGuests = num;
 		};
+		//to check where is it
+		console.log($(".selectDish").attr("keyDetail"));
+			this.notify("people");
 	    
-	    //console.log(numberOfGuests);
-	    this.notify("people");
 	}
 
 	// should return 
@@ -199,10 +200,9 @@ var DinnerModel = function() {
 	this.getTotalPendingPrice = function() {
 		//TODO Lab 2
         var totalPendingPrice = 0;
-        var guestNum = this.getNumberOfGuests();
 
         for (var i = 0; i < pendingmenu.length; i++){
-        	totalPendingPrice += (this.getTotalDishPrice(pendingmenu[i]) * guestNum);
+        	totalPendingPrice += this.getTotalDishPrice(pendingmenu[i]);
         }
        
         return totalPendingPrice;
@@ -302,18 +302,18 @@ var DinnerModel = function() {
 
 		} else{
 			//似乎是没有用
-			for (var i = 0; i< pendingmenu.length; i++) {
-				if (pendingmenu[i] == id) {
-					pendingmenu.splice(i,1);
-				};
-			};
+			// for (var i = 0; i< pendingmenu.length; i++) {
+			// 	if (pendingmenu[i] == id) {
+			// 		pendingmenu.splice(i,1);
+			// 	};
+			// };
 			this.notify("backToMenu");
 
 		};
 
-		$(".backToMenu").attr("key",0);
-		console.log(menu);
-		console.log(pendingmenu);
+		$(".backToMenu").attr("key",0);//default as 0
+		// console.log(menu);
+		// console.log(pendingmenu);
 
 
 	}

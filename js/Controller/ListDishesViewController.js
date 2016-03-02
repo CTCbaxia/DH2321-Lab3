@@ -11,7 +11,7 @@ var ListDishesViewController = function(view, model){
         model.addDishToPendingMenu(id);//add pending to dinnerMenuView
          $(".confirm").attr('id',id);
          $(".backToMenu").attr('id',id);//add id to backToMenu button, so if go back without adding, the dish won't be showed on menu
-      
+         $(this).attr("keyDetail",1);
       });
 
   });
@@ -29,8 +29,9 @@ var ListDishesViewController = function(view, model){
     model.addDishToPendingMenu(id);//add pending to dinnerMenuView
     $(".confirm").attr('id',id);
     $(".backToMenu").attr('id',id);//add id to backToMenu button, so if go back without adding, the dish won't be showed on menu
-    // console.log($(".confirm").attr('id',id));
-    // console.log($("#backToMenu").attr('id',id));
+    $(this).attr("keyDetail",1);
+    
+    console.log($(this).attr("keyDetail"));
   });
   
   //unused 
