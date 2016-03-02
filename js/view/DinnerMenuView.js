@@ -15,11 +15,15 @@ var DinnerMenuView = function(container,model){
 
 	this.update = function(args){
 
-		if (args == "addMenu" || args =="people"|| args == "removeDish"||args == "backToMenu") {
+		var keyDetail = $(".selectDish").attr("keyDetail");//check where it is, List or Detail
+		console.log(keyDetail);
+		if (args == "addMenu" ||(args =="people" && keyDetail == 0) || args == "removeDish"||args == "backToMenu") {
+
 			//this.dinnerMenu = container.find("#dinnerMenu");
 
 			var menu = model.getFullMenu();
 			var menuList = "";
+
 			for (var i = 0; i < menu.length; i++) {
 	   		 var id = menu[i].id;
 	    	 var name = menu[i].name;
@@ -30,16 +34,17 @@ var DinnerMenuView = function(container,model){
 						"<td>"+ name +"</td>" +
 						"<td style=\"text-align:right;\">" + price + "</td>" +
 						"<td>" + "<span class = \"glyphicon glyphicon-remove removeDish\" id="+ menu[i].id +"></span>" +"</td>" +//每列添加了button
+
 					"</tr>" ;
 			};
 
+        this.price.html(model.getTotalMenuPrice());
 
-        this.price.html(totalPrice);
 
 		this.dinnerMenu.html(menuList);
 		$(".removeDish").click(removeDishFunction);
 
-		}else if (args == "addPending") {
+		}else if (args == "addPending" || (args =="people" && keyDetail == 1) ) {
 			//this.dinnerMenu = container.find("#dinnerMenu");
 			var menu = model.getFullPendingMenu();
 			var menuList = "";
@@ -61,11 +66,13 @@ var DinnerMenuView = function(container,model){
 							"<td>"+ "pending" +"</td>" +
 							"<td style=\"text-align:right;\">" + model.getTotalDishPrice(pendingID) + "</td>" +
 							"<td>"+ " " +"</td>" +
+
 						// "<td>"+ "<button type=\"button\" class=\"removeDish\" id="+ menu[i].id +">" + "<span class = \"glyphicon glyphicon-remove\"></span>" + "</button>" +"</td>" +//每列添加了button
 						"</tr>" ;
 			
 
-			var totalPrice = model.getTotalMenuPrice();
+			var totalPrice = model.getTotalPendingPrice();
+
         	this.price.html(totalPrice);
 
 	
