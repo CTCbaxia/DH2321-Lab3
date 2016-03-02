@@ -41,9 +41,10 @@ var DinnerModel = function() {
 		}else{
 			numberOfGuests = num;
 		};
+		//to check where is it
+		console.log($(".selectDish").attr("keyDetail"));
+			this.notify("people");
 	    
-	    //console.log(numberOfGuests);
-	    this.notify("people");
 	}
 
 	// should return 
@@ -196,6 +197,17 @@ var DinnerModel = function() {
         return totalPrice;
 	}
 
+	this.getTotalPendingPrice = function() {
+		//TODO Lab 2
+        var totalPendingPrice = 0;
+
+        for (var i = 0; i < pendingmenu.length; i++){
+        	totalPendingPrice += this.getTotalDishPrice(pendingmenu[i]);
+        }
+       
+        return totalPendingPrice;
+	}
+
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
@@ -233,13 +245,12 @@ var DinnerModel = function() {
 		var selectDish = this.getDish(id);//get all the info of the dish
 		var selectDishType = selectDish.type;
 		var theSameType = -1;
-		// console.log(selectDish);
-		console.log(menu);
-		console.log(pendingmenu);
+
 		for(var i = 0; i< menu.length; i++) {
 			pendingmenu[i] = menu[i];
 		};
 		// pendingmenu = menu;
+
 
 		if (pendingmenu.length == 0) {
 			//if there is nothing in the menu, add directly
@@ -256,14 +267,15 @@ var DinnerModel = function() {
 				};
 			};
 			if (theSameType != -1) {
-				pendingmenu[theSameType] = id;
+				// pendingmenu[theSameType] = id;
+				pendingmenu.splice(theSameType,1);
+				pendingmenu.push(id); 
 			}else{
 				// console.log(theSameType);
 				pendingmenu.push(id); 
 			};
 		};
-		console.log(menu);
-		console.log(pendingmenu);
+
 		this.notify("addPending");
 	}
 	
@@ -289,18 +301,19 @@ var DinnerModel = function() {
 			this.notify("addMenu")
 
 		} else{
-			for (var i = 0; i< pendingmenu.length; i++) {
-				if (pendingmenu[i] == id) {
-					pendingmenu.splice(i,1);
-				};
-			};
+			//似乎是没有用
+			// for (var i = 0; i< pendingmenu.length; i++) {
+			// 	if (pendingmenu[i] == id) {
+			// 		pendingmenu.splice(i,1);
+			// 	};
+			// };
 			this.notify("backToMenu");
 
 		};
 
-		$(".backToMenu").attr("key",0);
-		console.log(menu);
-		console.log(pendingmenu);
+		$(".backToMenu").attr("key",0);//default as 0
+		// console.log(menu);
+		// console.log(pendingmenu);
 
 
 	}

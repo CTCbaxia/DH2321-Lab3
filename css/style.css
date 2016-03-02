@@ -94,6 +94,11 @@
         padding-top: 3px;
     }/*, overviewPage repeat*/
 
+    .dishname span{
+        color: rgba(0,0,0);
+    }
+    /*, overviewPage repeat*/
+
     .description{
     	height: 72px;
     	padding: 5px;
