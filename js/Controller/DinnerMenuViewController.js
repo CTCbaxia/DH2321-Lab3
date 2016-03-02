@@ -4,6 +4,7 @@ var DinnerMenuViewController = function(view, model){
     var id = $(this).attr('id');
     // console.log("I am on click");
     model.removeDishFromMenu(id);
+    // model.addDishToPendingMenu(id);
     model.notify("removeDish");
   });
 

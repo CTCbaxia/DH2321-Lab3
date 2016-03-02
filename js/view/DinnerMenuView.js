@@ -16,8 +16,9 @@ var DinnerMenuView = function(container,model){
 	this.update = function(args){
 
 		var keyDetail = $(".selectDish").attr("keyDetail");//check where it is, List or Detail
-		console.log(keyDetail);
-		if (args == "addMenu" ||(args =="people" && keyDetail == 0) || args == "removeDish"||args == "backToMenu") {
+
+		// console.log(keyDetail);
+		if (args == "addMenu" ||(args =="people" && keyDetail == 0) || (args == "removeDish" && keyDetail == 0)||args == "backToMenu") {
 
 			//this.dinnerMenu = container.find("#dinnerMenu");
 
@@ -44,8 +45,9 @@ var DinnerMenuView = function(container,model){
 		this.dinnerMenu.html(menuList);
 		$(".removeDish").click(removeDishFunction);
 
-		}else if (args == "addPending" || (args =="people" && keyDetail == 1) ) {
+		}else if (args == "addPending" || (args =="people" && keyDetail == 1)||(args == "removeDish" && keyDetail == 1) ) {
 			//this.dinnerMenu = container.find("#dinnerMenu");
+
 			var menu = model.getFullPendingMenu();
 			var menuList = "";
 			for (var i = 0; i < menu.length-1; i++) {
