@@ -9,12 +9,15 @@ var SelectDishViewController = function(view, model){
     id = $(this).attr('id');
     $(".backToMenu").attr("key",1);
     model.addDishToMenu(id);
-    console.log($(".backToMenu").attr("key"));
+    // console.log($(".backToMenu").attr("key"));
+    $(".selectDish").attr("keyDetail",0);
+    console.log($(".selectDish").attr("keyDetail"));
   });
   //click backToMenu without dish showing in the menu
   $(".backToMenu").on("click",function(){  
   	id = $(this).attr('id');
-    console.log($(this).attr("key"));
   	model.pendingBackToList(id);
+    $(".selectDish").attr("keyDetail",0);
+    console.log($(".selectDish").attr("keyDetail"));
   });
 }
